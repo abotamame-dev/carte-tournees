@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartes des Tournées – Accueil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img class="logo" src="assets/logo.jpg" alt="Logo" />
+  </header>
+  <div class="container">
+    <div class="card">
+      <h1>Cartes des tournées</h1>
+      <p>Sélectionnez une tournée pour afficher la carte interactive. Le rendu est optimisé pour mobile et bureau.</p>
+      <div class="select-row">
+        <select id="tourSelect"></select>
+        <button class="primary" id="openBtn">Ouvrir la carte</button>
+      </div>
+    </div>
+    <div class="footer">by COGEPART – Transports de précision</div>
+  </div>
+  <script src="tours.js"></script>
+  <script>
+    const sel = document.getElementById('tourSelect');
+    const openBtn = document.getElementById('openBtn');
+    const tours = Object.keys(window.TOURS_DATA || {}).sort();
+    if (tours.length === 0) { sel.disabled = true; openBtn.disabled = true; sel.innerHTML = '<option>Aucune tournée trouvée</option>'; }
+    else { sel.innerHTML = tours.map(t => `<option value="${encodeURIComponent(t)}">${t}</option>`).join(''); }
+    openBtn.addEventListener('click', () => { 
+      const t = sel.value; if (!t) return; 
+      window.location.href = `map.html?tour=${t}`; 
+    });
+  </script>
+</body>
+</html>

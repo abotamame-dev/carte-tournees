@@ -1,0 +1,98 @@
+
+:root {
+  --primary: #0a58ca;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #222;
+  background: #f7f7fb;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header img.logo {
+  height: 48px;
+  max-width: 80%;
+  object-fit: contain;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+h1 { font-size: 1.4rem; margin: 0 0 8px; }
+p { margin: 0 0 14px; line-height: 1.45; }
+.select-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+select, button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+button.primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+button.primary:active { opacity: .9; }
+.footer {
+  text-align: center;
+  color: #888;
+  padding: 24px 12px 40px;
+  font-size: .9rem;
+}
+/* Map page */
+.map-toolbar {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,.95);
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.map-toolbar select {
+  min-width: 220px;
+}
+#map { position: fixed; inset: 0; }
+.legend {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(255,255,255,.95);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: .9rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle;}
+.legend .hub { background:#d9534f; }
+.legend .stop { background:#0d6efd; }
