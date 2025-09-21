@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img class="logo" src="assets/logo.jpg" alt="Logo" />
-  </header>
+  <header><img class="logo" src="assets/cropped-logo-bycogepart_rvb.jpg" alt="Logo" /></header>
   <div class="container">
     <div class="card">
       <h1>Cartes des tournées</h1>
@@ -28,10 +26,7 @@
     const tours = Object.keys(window.TOURS_DATA || {}).sort();
     if (tours.length === 0) { sel.disabled = true; openBtn.disabled = true; sel.innerHTML = '<option>Aucune tournée trouvée</option>'; }
     else { sel.innerHTML = tours.map(t => `<option value="${encodeURIComponent(t)}">${t}</option>`).join(''); }
-    openBtn.addEventListener('click', () => { 
-      const t = sel.value; if (!t) return; 
-      window.location.href = `map.html?tour=${t}`; 
-    });
+    openBtn.addEventListener('click', () => { const t = sel.value; if (!t) return; window.location.href = `map.html?tour=${t}`; });
   </script>
 </body>
 </html>
